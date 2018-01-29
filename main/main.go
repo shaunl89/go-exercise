@@ -55,9 +55,9 @@ func main() {
 
 	sort.Sort(sort.Reverse(sort.IntSlice(a)))
 
-	// if top 3 words exist, print them out if not print everything
+	// if top 3 words exist, print them out else print everything
 	if len(a) > 3 {
-		for _, k := range a[0:2] {
+		for _, k := range a[0:3] {
 			for _, s := range n[k] {
 				fmt.Printf("%s, %d times\n", s, k)
 			}
