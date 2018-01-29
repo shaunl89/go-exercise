@@ -15,8 +15,6 @@ import (
 // store each unique word into object(map?) as key and occurences as value
 // sort and display top 10 words
 
-// sample text: "hello WORLD where hello world World today's art   thou today in this place and time. hello WORLD where hello world World today's art   thou today in this place and time. hello WORLD where hello world World today's art   thou today in this place and time. hello WORLD where hello world World today's art   thou today in this place and time. hello WORLD where hello world World today's art   thou today in this place and time. hello WORLD where hello world World today's art   thou today in this place and time. hello WORLD where hello world World today's art   thou today in this place and time."
-
 func main() {
 
 	// terminal prompt for user to enter text and get input text
@@ -49,10 +47,7 @@ func main() {
 	var a []int // type slice
 	for k, v := range freq {
 		n[v] = append(n[v], k)
-		// fmt.Println("k is", k) // k is word
-		// fmt.Println("v is", v) // v is occurrences
 	}
-	// fmt.Printf("n is %v\n", n)
 
 	for k := range n {
 		a = append(a, k)
@@ -63,20 +58,15 @@ func main() {
 	// if top 3 words exist, print them out if not print everything
 	if len(a) > 3 {
 		for _, k := range a[0:2] {
-			// fmt.Printf("length of slice a %d\n", len(a))
-			// fmt.Printf("a is %v \n", a)
 			for _, s := range n[k] {
 				fmt.Printf("%s, %d times\n", s, k)
 			}
 		}
 	} else {
 		for _, k := range a {
-			// fmt.Printf("length of slice a %d\n", len(a))
-			// fmt.Printf("a is %v \n", a)
 			for _, s := range n[k] {
 				fmt.Printf("%s, %d times\n", s, k)
 			}
 		}
 	}
-	// TODO: Readme
 }
