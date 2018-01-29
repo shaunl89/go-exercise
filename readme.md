@@ -42,6 +42,17 @@ To run the program, enter the directory ```exercise``` in terminal and type
 go run main/main.go
 ```
 
+### Packages Used
+```
+"fmt"
+"sort"
+"strings"
+"bufio"
+"os"
+```
+
+For more information on packages, the official documentation can be found [here](https://golang.org/pkg/).
+
 ## Improvements
 
 * Using a regex expression to filter out common text elements such as "!", "?" and "'s" so that processed text will be only words
