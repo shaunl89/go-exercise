@@ -59,13 +59,13 @@ func main() {
 	if len(a) > 3 {
 		for _, k := range a[0:3] {
 			for _, s := range n[k] {
-				fmt.Printf("%s, %d times\n", s, k)
+				fmt.Printf("%s appears %d times\n", s, k)
 			}
 		}
 	} else {
 		for _, k := range a {
 			for _, s := range n[k] {
-				fmt.Printf("%s, %d times\n", s, k)
+				fmt.Printf("%s appears %d times\n", s, k)
 			}
 		}
 	}
