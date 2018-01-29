@@ -23,9 +23,8 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter your text: ")
 	str, _ := reader.ReadString('\n')
-	fmt.Print(str)
 
-	// process input to remove unnecessary elements
+	// process the input to remove . , 's elements in text
 	var strLC = strings.ToLower(str)
 	var strNoFS = strings.Replace(strLC, ".", "", -1)
 	var strNoComma = strings.Replace(strNoFS, ",", "", -1)
@@ -46,21 +45,38 @@ func main() {
 	}
 
 	// sorting
-	n := map[int][]string{}
-	var a []int
+	n := map[int][]string{} // n is type map
+	var a []int // type slice
 	for k, v := range freq {
 		n[v] = append(n[v], k)
+		// fmt.Println("k is", k) // k is word
+		// fmt.Println("v is", v) // v is occurrences
 	}
+	// fmt.Printf("n is %v\n", n)
+
 	for k := range n {
 		a = append(a, k)
 	}
+
 	sort.Sort(sort.Reverse(sort.IntSlice(a)))
-	for _, k := range a {
-		for _, s := range n[k] {
-			fmt.Printf("%s, %d\n", s, k)
-			// TODO: work with returning top 3 words
+
+	// if top 3 words exist, print them out if not print everything
+	if len(a) > 3 {
+		for _, k := range a[0:2] {
+			// fmt.Printf("length of slice a %d\n", len(a))
+			// fmt.Printf("a is %v \n", a)
+			for _, s := range n[k] {
+				fmt.Printf("%s, %d times\n", s, k)
+			}
+		}
+	} else {
+		for _, k := range a {
+			// fmt.Printf("length of slice a %d\n", len(a))
+			// fmt.Printf("a is %v \n", a)
+			for _, s := range n[k] {
+				fmt.Printf("%s, %d times\n", s, k)
+			}
 		}
 	}
 	// TODO: Readme
-	// TODO: Github
 }
